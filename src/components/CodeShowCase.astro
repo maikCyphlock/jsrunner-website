@@ -1,0 +1,23 @@
+---
+import CodeEditor from "../components/CodeEditor.astro";
+import Window from "../components/icons/Window.astro";
+---
+
+<div class="translate-y-[-200px]">
+  <CodeEditor
+    code={`1+1\n\n"hello"\n\nconst hola = {
+a: 1,
+}\n
+hola
+`}
+    result={`2\n\n"hello"\n\n\n\n\n\n{
+a: 1,
+}`}
+  />
+  <div class="flex justify-center p-4">
+    <button
+      class="p-2 dark:bg-indigo-700 rounded text-slate-50 hover:text-slate-50/50 font-semibold flex gap-2"
+      ><Window />Download
+    </button>
+  </div>
+</div>
