@@ -1,0 +1,78 @@
+---
+const { code, result } = Astro.props;
+
+const bracketRegex = /(\[|\])/g;
+const parenthesisRegex = /(\(|\))/g;
+const curlyBracketRegex = /(\{|})/g;
+const stringRegex = /(["'`])(?:(?=(\\?))\2.)*?\1/g;
+const numberRegex = /\b\d+(\.\d+)?\b/g;
+const propertyRegex = /(?<=\.)\w+/g;
+const keywordRegex =
+  /\b(function|var|let|const|if|throw|else|for|while|return|new|true|false|null|undefined)\b/g;
+
+const sanitizeCode = code
+  .replace(stringRegex, '<span class="string">$&</span>')
+  .replace(numberRegex, '<span class="number">$&</span>')
+  .replace(propertyRegex, '<span class="property">$&</span>')
+  .replace(keywordRegex, '<span class="keyword">$1</span>')
+  .replace(bracketRegex, '<span class="bracket">$1</span>')
+  .replace(parenthesisRegex, '<span class="parenthesis">$1</span>')
+  .replace(curlyBracketRegex, '<span class="curly-bracket">$1</span>');
+
+const sanitizeResult = result
+  .replace(stringRegex, '<span class="string">$&</span>')
+  .replace(numberRegex, '<span class="number">$&</span>')
+  .replace(propertyRegex, '<span class="property">$&</span>')
+  .replace(keywordRegex, '<span class="keyword">$1</span>')
+  .replace(bracketRegex, '<span class="bracket">$1</span>')
+  .replace(parenthesisRegex, '<span class="parenthesis">$1</span>')
+  .replace(curlyBracketRegex, '<span class="curly-bracket">$1</span>');
+---
+
+<script></script>
+
+<div
+  class="rounded p-4 flex text-slate-50 bg-slate-950 flex-col overflow-hidden"
+>
+  <div class="p-3 flex gap-2 border-b border-slate-900">
+    <div class="rounded-full w-4 h-4 bg-red-500"></div>
+    <div class="rounded-full w-4 h-4 bg-yellow-500"></div>
+    <div class="rounded-full w-4 h-4 bg-green-500"></div>
+  </div>
+  <div class="flex min-h-[300px]">
+    <pre class="basis-1/2 mt-4" set:html={sanitizeCode} />
+    <pre
+      class="basis-1/2 pt-4 border-l border-slate-900 pl-2"
+      set:html={sanitizeResult}
+    />
+  </div>
+</div>
+
+<style global>
+  .bracket {
+    color: #e5c07b;
+  }
+
+  .parenthesis {
+    color: #e5c07b;
+  }
+
+  .keyword {
+    color: #c594c5;
+  }
+  .curly-bracket {
+    color: #c79061;
+  }
+  .string {
+    color: #98c379 !important;
+    & * {
+      color: #98c379 !important;
+    }
+  }
+  .number {
+    color: #c79061;
+  }
+  .property {
+    color: #e5c07b;
+  }
+</style>
