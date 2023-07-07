@@ -1,23 +1,23 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
-import Landing from "../components/Landing.astro";
 import CodeShowCase from "../components/CodeShowCase.astro";
 import CodeEditor from "../components/CodeEditor.astro";
+import LandingEn from "../components/Landing-en.astro";
 ---
 
 <Layout title="JSRunner">
   <Navbar />
-  <Landing />
+  <LandingEn />
   <div class="container mx-auto">
     <CodeShowCase />
 
     <div class="p-4 flex flex-col md:flex-row gap-6 mb-56">
       <h1 class="text-2xl text-center max-w-[30ch] leading-10">
-        Descubre y prueba cosas nuevas con JavaScript y <span
+        Discover and try out new things with JavaScript and <span
           class="bg-blue-800 text-white font-semibold p-2">TypeScript</span
-        >, da vida a tus ideas con representaciones visuales, y recibe
-        retroalimentación inmediata mientras escribes.
+        >, bring your ideas to life with visual representations, and receive
+        immediate feedback as you type.
       </h1>
       <div class="min-w-[600px]">
         <CodeEditor
@@ -35,10 +35,10 @@ import CodeEditor from "../components/CodeEditor.astro";
         />
       </div>
       <h1 class="text-2xl text-center max-w-[30ch] leading-10">
-        Sacale provecho a todo <span
+        Make the most of everything <span
           class="bg-yellow-300 text-black font-semibold p-2">JavaScript</span
-        >
-        incluyendo las nuevas funcionalidades que salen en ESNEXT y pruebalas
+        > has to offer, including the new features that come out in ESNEXT, and try
+        them out.
       </h1>
     </div>
   </div>

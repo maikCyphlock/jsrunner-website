@@ -1,6 +1,8 @@
 ---
 import CodeEditor from "../components/CodeEditor.astro";
 import Window from "../components/icons/Window.astro";
+import Mac from "./icons/Mac.astro";
+import Ubuntu from "./icons/Ubuntu.astro";
 ---
 
 <div class="translate-y-[-200px]">
@@ -14,10 +16,24 @@ hola
 a: 1,
 }`}
   />
-  <div class="flex justify-center p-4">
-    <button
+  <div class="flex justify-center p-4 gap-4">
+    <a
+      download
+      href="https://github.com/maikCyphlock/jsrunner/releases/download/v1.0.2/jsrunner_1.0.2.exe"
       class="p-2 dark:bg-indigo-700 rounded text-slate-50 hover:text-slate-50/50 font-semibold flex gap-2"
       ><Window />Download
-    </button>
+    </a>
+    <a
+      download
+      href="https://github.com/maikCyphlock/jsrunner/releases/download/v1.0.2/jsrunner_1.0.2.dmg"
+      class="p-2 dark:bg-indigo-700 rounded text-slate-50 hover:text-slate-50/50 font-semibold flex gap-2"
+      ><Mac />Download
+    </a>
+    <a
+      download
+      href="https://github.com/maikCyphlock/jsrunner/releases/download/v1.0.2/jsrunner-1.0.2-linux-x86_64.AppImage"
+      class="p-2 dark:bg-indigo-700 rounded text-slate-50 hover:text-slate-50/50 font-semibold flex gap-2"
+      ><Ubuntu />Download
+    </a>
   </div>
 </div>
