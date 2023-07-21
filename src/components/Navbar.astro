@@ -1,5 +1,11 @@
 ---
 import Github from "./icons/Gtihub.astro";
+
+const currentPath = Astro.url.pathname;
+const activeBtnClass =
+  "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded";
+const inactiveBtnClass =
+  "border-indigo-700 border hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded";
 ---
 
 <nav
@@ -11,13 +17,10 @@ import Github from "./icons/Gtihub.astro";
   <div class="flex gap-5 items-center justify-between font-semibold text-xs">
     Language:
     <a
-      class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+      class={currentPath === "/en" ? activeBtnClass : inactiveBtnClass}
       href="/en">Eng</a
     >
-    <a
-      href="/"
-      class="border-indigo-700 border hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
-    >
+    <a href="/" class={currentPath === "/" ? activeBtnClass : inactiveBtnClass}>
       Es</a
     >
   </div>
